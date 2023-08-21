@@ -1,0 +1,58 @@
+.table {
+  border: 1px solid var(--color-grey-200);
+  font-size: 1.4rem;
+  background-color: var(--color-grey-0);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.table__header,
+.table__row--common,
+.table__row--styled {
+  display: grid;
+  column-gap: 2.4rem;
+  align-items: center;
+  transition: none;
+}
+
+.table__header,
+.table__row--common {
+  padding: 1.6rem 2.4rem;
+  background-color: var(--color-grey-50);
+  border-bottom: 1px solid var(--color-grey-100);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+  color: var(--color-grey-600);
+}
+
+.table__row--styled {
+  padding: 1.2rem 2.4rem;
+}
+
+.table__row--styled:not(:last-child) {
+  border-bottom: 1px solid var(--color-grey-100);
+}
+
+.table__section {
+  margin: 0.4rem 0;
+}
+
+.table__footer {
+  background-color: var(--color-grey-50);
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem;
+}
+
+/* This will hide the footer when it contains no child elements. Possible thanks to the parent selector :has */
+.table__footer:not(:has(*)) {
+  display: none;
+}
+
+.empty {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 2.4rem;
+}

@@ -1,0 +1,11 @@
+.row__vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.row__horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
