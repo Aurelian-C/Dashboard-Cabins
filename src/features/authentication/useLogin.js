@@ -11,7 +11,7 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: user => {
       toast.success(`You are successfully connected to your account!`);
-      navigate('/dashboard', { replace: true });
+      navigate('/dashboard', { replace: true }); // with { replace: true } we basically erase all the urls in the browsers that we were earlier
       queryClient.setQueryData(['user'], user.user); // manually set data into the React Query cache
     },
     onError: error => {
