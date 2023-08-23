@@ -46,8 +46,9 @@ export async function getCurrentUser() {
   const { data: session, error } = await supabase.auth.getSession(); // this method retrieves the current local session (i.e local storage).
   if (!session.session) return null;
 
-  // 2. If there is a session on the local storage, get (re-fetch) the user credential from Supabase
-  const { data } = await supabase.auth.getUser(); // You might think that we could just get the user from the session. While that is true, it is a bit more secure to just redownload everything from Supabase
+  // 2. If there is a session on the local storage, get (re-fetch) the user credential from Supabase.
+  // You might think that we could just get the user credentials from the local storage. While that is true, it is a bit more secure to just redownload everything from Supabase
+  const { data } = await supabase.auth.getUser(); //
 
   if (error) {
     throw new Error(error.message);
