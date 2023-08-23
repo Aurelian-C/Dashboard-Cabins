@@ -4,6 +4,7 @@ export async function signup({ fullName, email, password }) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
+    // You can assign metadata to users on sign up. User metadata is stored on the raw_user_meta_data column of the auth.users table.
     options: {
       data: {
         // in the data object, we can pass in any kind of information that we want about the user
