@@ -6,6 +6,7 @@ export async function signup({ fullName, email, password }) {
     password,
     options: {
       data: {
+        // in the data object, we can pass in any kind of information that we want about the user
         fullName,
         avatar: '',
       },
