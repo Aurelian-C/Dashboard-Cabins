@@ -42,11 +42,12 @@ export async function logout() {
 
 // If user is already authenticated, get the JSON object for the logged in user
 export async function getCurrentUser() {
+  // 1. Get the user credentials from local storage
   const { data: session, error } = await supabase.auth.getSession(); // this method retrieves the current local session (i.e local storage).
   if (!session.session) return null;
 
-  // You might think that we could just get the user from the session. While that is true, it is a bit more secure to just redownload everything from Supabase
-  const { data } = await supabase.auth.getUser();
+  // 2. If there is a session on the local storage, get (re-fetch) the user credential from Supabase
+  const { data } = await supabase.auth.getUser(); // You might think that we could just get the user from the session. While that is true, it is a bit more secure to just redownload everything from Supabase
 
   if (error) {
     throw new Error(error.message);
